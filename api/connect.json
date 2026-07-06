@@ -1,0 +1,37 @@
+{
+  "endpoint": "/api/connect.json",
+  "method": "POST",
+  "description": "Connect to VPN server in specified country",
+  "parameters": {
+    "country": {
+      "type": "string",
+      "description": "Country code (MD for Moldova, US for United States)",
+      "required": true,
+      "example": "US"
+    },
+    "protocol": {
+      "type": "string",
+      "description": "VPN protocol (OpenVPN, WireGuard, IKEv2)",
+      "default": "OpenVPN"
+    }
+  },
+  "request_example": {
+    "country": "US",
+    "protocol": "OpenVPN"
+  },
+  "response_success": {
+    "status": "connected",
+    "country": "United States",
+    "country_code": "US",
+    "vpn_ip": "192.168.1.100",
+    "server_address": "us-vpn-01.example.com",
+    "protocol": "OpenVPN",
+    "connected_at": "2026-07-06T10:30:00Z",
+    "message": "Successfully connected to VPN"
+  },
+  "response_error": {
+    "status": "error",
+    "error_code": "CONNECTION_FAILED",
+    "message": "Failed to connect to VPN server"
+  }
+}
