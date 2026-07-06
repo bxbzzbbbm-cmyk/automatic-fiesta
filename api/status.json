@@ -1,0 +1,30 @@
+{
+  "endpoint": "/api/status.json",
+  "method": "GET",
+  "description": "Get current VPN connection status",
+  "parameters": {},
+  "request_example": {},
+  "response_connected": {
+    "status": "connected",
+    "country": "United States",
+    "country_code": "US",
+    "vpn_ip": "192.168.1.100",
+    "server_address": "us-vpn-01.example.com",
+    "protocol": "OpenVPN",
+    "connected_at": "2026-07-06T10:30:00Z",
+    "uptime_seconds": 300,
+    "data_sent_mb": 125.5,
+    "data_received_mb": 342.8
+  },
+  "response_disconnected": {
+    "status": "disconnected",
+    "message": "No active VPN connection",
+    "real_ip": "203.0.113.50",
+    "location": "Unknown"
+  },
+  "response_error": {
+    "status": "error",
+    "error_code": "STATUS_CHECK_FAILED",
+    "message": "Unable to retrieve VPN status"
+  }
+}
