@@ -1,0 +1,43 @@
+{
+  "endpoint": "/api/generate-vpn-ip.json",
+  "method": "POST",
+  "description": "Generate new VPN IP address for specified country",
+  "parameters": {
+    "country": {
+      "type": "string",
+      "description": "Country code (MD for Moldova, US for United States)",
+      "required": true,
+      "example": "MD"
+    },
+    "protocol": {
+      "type": "string",
+      "description": "VPN protocol type",
+      "default": "OpenVPN"
+    }
+  },
+  "request_example": {
+    "country": "MD",
+    "protocol": "OpenVPN"
+  },
+  "response_success": {
+    "status": "success",
+    "country": "Moldova",
+    "country_code": "MD",
+    "generated_vpn_ip": "10.0.0.50",
+    "vpn_gateway": "10.0.0.1",
+    "subnet_mask": "255.255.255.0",
+    "dns_server_1": "8.8.8.8",
+    "dns_server_2": "8.8.4.4",
+    "server_address": "md-vpn-01.example.com",
+    "protocol": "OpenVPN",
+    "port": 1194,
+    "generated_at": "2026-07-06T10:40:00Z",
+    "expires_at": "2026-08-06T10:40:00Z",
+    "message": "New VPN IP successfully generated"
+  },
+  "response_error": {
+    "status": "error",
+    "error_code": "IP_GENERATION_FAILED",
+    "message": "Failed to generate new VPN IP"
+  }
+}
