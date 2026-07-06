@@ -1,0 +1,75 @@
+{
+  "endpoint": "/api/countries.json",
+  "method": "GET",
+  "description": "Get available VPN server countries",
+  "parameters": {
+    "country": {
+      "type": "string",
+      "description": "Optional country code filter (MD, US, etc.)",
+      "required": false,
+      "example": "US"
+    }
+  },
+  "request_example_all": "/api/countries.json",
+  "request_example_filtered": "/api/countries.json?country=US",
+  "response_all_countries": {
+    "status": "success",
+    "total_countries": 2,
+    "countries": [
+      {
+        "name": "Moldova",
+        "code": "MD",
+        "region": "Europe",
+        "servers": 3,
+        "server_addresses": [
+          "md-vpn-01.example.com",
+          "md-vpn-02.example.com",
+          "md-vpn-03.example.com"
+        ],
+        "available": true,
+        "latency_ms": 45,
+        "bandwidth_mbps": 1000
+      },
+      {
+        "name": "United States",
+        "code": "US",
+        "region": "North America",
+        "servers": 5,
+        "server_addresses": [
+          "us-vpn-01.example.com",
+          "us-vpn-02.example.com",
+          "us-vpn-03.example.com",
+          "us-vpn-04.example.com",
+          "us-vpn-05.example.com"
+        ],
+        "available": true,
+        "latency_ms": 25,
+        "bandwidth_mbps": 1000
+      }
+    ]
+  },
+  "response_single_country": {
+    "status": "success",
+    "country": {
+      "name": "United States",
+      "code": "US",
+      "region": "North America",
+      "servers": 5,
+      "server_addresses": [
+        "us-vpn-01.example.com",
+        "us-vpn-02.example.com",
+        "us-vpn-03.example.com",
+        "us-vpn-04.example.com",
+        "us-vpn-05.example.com"
+      ],
+      "available": true,
+      "latency_ms": 25,
+      "bandwidth_mbps": 1000
+    }
+  },
+  "response_error": {
+    "status": "error",
+    "error_code": "COUNTRY_NOT_FOUND",
+    "message": "Requested country is not available"
+  }
+}
