@@ -1,0 +1,38 @@
+{
+  "endpoint": "/api/disconnect.json",
+  "method": "POST",
+  "description": "Disconnect from current VPN connection",
+  "parameters": {},
+  "request_example": {},
+  "response_success": {
+    "status": "disconnected",
+    "message": "Successfully disconnected from VPN",
+    "disconnected_at": "2026-07-06T10:35:00Z",
+    "previous_country": "United States",
+    "previous_vpn_ip": "192.168.1.100",
+    "connection_duration_seconds": 300,
+    "data_sent_mb": 125.5,
+    "data_received_mb": 342.8
+  },
+  "response_error": {
+    "status": "error",
+    "error_code": "DISCONNECTION_FAILED",
+    "message": "Failed to disconnect from VPN"
+  },
+  "response_no_connection": {
+    "status": "warning",
+    "message": "No active VPN connection to disconnect"
+  },
+  "usage_example": {
+    "curl": "curl -X POST https://api.example.com/api/disconnect.json -H 'Content-Type: application/json'",
+    "javascript": "fetch('/api/disconnect.json', { method: 'POST', headers: { 'Content-Type': 'application/json' } })",
+    "python": "import requests; requests.post('https://api.example.com/api/disconnect.json')"
+  },
+  "response_codes": {
+    "200": "Successfully disconnected from VPN",
+    "400": "Bad request - Invalid parameters",
+    "401": "Unauthorized - Missing or invalid credentials",
+    "404": "Not found - API endpoint does not exist",
+    "500": "Server error - Unable to process disconnection"
+  }
+}
